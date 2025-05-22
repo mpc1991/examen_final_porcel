@@ -3,7 +3,7 @@ import 'package:examen_final_porcel/models/plat.dart';
 import 'package:flutter/material.dart';
 
 class PlatCard extends StatelessWidget{
-  final Plat plat;
+  final Plat_old plat;
   const PlatCard({Key? key, required this.plat}) : super(key: key);
   
   @override
@@ -18,14 +18,15 @@ class PlatCard extends StatelessWidget{
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [
-            _BackgroudWidget(plat.foto),
-            _PlatDetails(plat.nom, plat.id!),
+            //_BackgroudWidget(plat.foto),
+            //_PlatDetails(plat.nom, plat.id!),
+            _PlatDetails(plat.nom),
             Positioned(top: 0, right: 0, child: _PriceTag(123)), //plat.price si tiene
-            if (!plat.disponible) ...[ // Condicional para añadir etiqueta
-              Positioned(top: 0, left: 0, child: _Availability("Reservat")),
-             ] else ...[ // Eliminar el 'else' si no queremos etiqueta 'Disponible'
-              Positioned(top: 0, left: 0, child: _Availability("Disponible")),
-             ]
+            // if (!plat.disponible) ...[ // Condicional para añadir etiqueta
+            //   Positioned(top: 0, left: 0, child: _Availability("Reservat")),
+            //  ] else ...[ // Eliminar el 'else' si no queremos etiqueta 'Disponible'
+            //   Positioned(top: 0, left: 0, child: _Availability("Disponible")),
+            //  ]
           ],
         ),
       ),
@@ -78,9 +79,10 @@ class _BackgroudWidget extends StatelessWidget {
 
 class _PlatDetails extends StatelessWidget {
   final String name;
-  final String subtitle;
+  //final String subtitle;
 
-  const _PlatDetails(this.name, this.subtitle,
+  //const _PlatDetails(this.name, this.subtitle,
+  const _PlatDetails(this.name,
   {Key? key}) : super(key: key);
   
   @override
@@ -104,7 +106,7 @@ class _PlatDetails extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
           ),
-          Text(subtitle,style: TextStyle(fontSize: 10, color: Colors.white),)
+          //Text(subtitle,style: TextStyle(fontSize: 10, color: Colors.white),)
         ],
       ),
     )

@@ -1,6 +1,14 @@
+// To parse this JSON data, do
+//
+//     final plat = platFromMap(jsonString);
+
 import 'dart:convert';
 
-class Plat_old {
+List<Plat> platFromMap(String str) => List<Plat>.from(json.decode(str).map((x) => Plat.fromMap(x)));
+
+String platToMap(List<Plat> data) => json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
+
+class Plat {
     String id;
     String nom;
     String descripcio;
@@ -8,7 +16,7 @@ class Plat_old {
     String alergens;
     String tipus;
 
-    Plat_old({
+    Plat({
         required this.id,
         required this.nom,
         required this.descripcio,
@@ -17,11 +25,7 @@ class Plat_old {
         required this.tipus,
     });
 
-    factory Plat_old.fromJson(String str) => Plat_old.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Plat_old.fromMap(Map<String, dynamic> json) => Plat_old(
+    factory Plat.fromMap(Map<String, dynamic> json) => Plat(
         id: json["id"],
         nom: json["nom"],
         descripcio: json["descripcio"],

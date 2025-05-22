@@ -1,4 +1,5 @@
 import 'package:examen_final_porcel/screens/loading_screen.dart';
+import 'package:examen_final_porcel/widgets/plat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
