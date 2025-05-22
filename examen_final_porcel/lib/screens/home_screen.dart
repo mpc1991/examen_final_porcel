@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           child: PlatCard(plat: platsServices.plats[index]),
           onTap: () {
             //platsServices.newPicture = null;
-            //platsServices.selectedProduct = platsServices.plats[index].getProduct();
+            platsServices.selectedPlat = platsServices.plats[index].getPlat();
             Navigator.of(context).pushNamed('plat');
           },
         ),

@@ -38,4 +38,12 @@ class Plat {
         "alergens": alergens,
         "tipus": tipus,
     };
+
+    Plat getPlat(){ // Añadido a mano
+      Plat plat = new Plat(descripcio: this.descripcio, foto: this.foto, 
+      nom: this.nom, alergens: this.alergens, tipus: this.tipus, id: this.id) ;
+
+      return plat;
+    }
+    
 }

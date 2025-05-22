@@ -61,32 +61,32 @@ class _PlatsScreenBody extends StatelessWidget {
                   ),
                 ),
 
-                // Botón para hacer una foto con la cámara y actualizar la imagen del producto
-                Positioned(
-                  top: 60,
-                  right: 20,
-                  child: IconButton(
-                    onPressed: () async{
-                      // Abre la cámara o la galeria para tomar una foto y obtiene la ruta de la imagen seleccionada.
-                      final ImagePicker picker = ImagePicker();
+                // // Botón para hacer una foto con la cámara y actualizar la imagen del producto
+                // Positioned(
+                //   top: 60,
+                //   right: 20,
+                //   child: IconButton(
+                //     onPressed: () async{
+                //       // Abre la cámara o la galeria para tomar una foto y obtiene la ruta de la imagen seleccionada.
+                //       final ImagePicker picker = ImagePicker();
 
-                      // Pick an image.
-                      //final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+                //       // Pick an image.
+                //       //final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
-                      // Capture a photo.
-                      final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+                //       // Capture a photo.
+                //       final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
-                      // Actualiza la imagen del producto usando productService.updateSelectedImage().
-                      platsServices.updateSelectedImage(photo!.path);
-                    },
+                //       // Actualiza la imagen del producto usando productService.updateSelectedImage().
+                //       platsServices.updateSelectedImage(photo!.path);
+                //     },
 
-                    icon: Icon(
-                      Icons.camera_alt_outlined,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                //     icon: Icon(
+                //       Icons.camera_alt_outlined,
+                //       size: 30,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
             _ProductForm(), // El formulario para editar nombre, precio y disponibilidad
@@ -128,46 +128,53 @@ class _ProductForm extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 10),
+              Text(tempProduct.nom),
+              SizedBox(height: 30),
+              Text(tempProduct.descripcio),
+              SizedBox(height: 30),
+              Text(tempProduct.alergens),
+              SizedBox(height: 30),
+              Text(tempProduct.tipus),
 
               // Campo para editar el nombre
-              TextFormField(
-                initialValue: tempProduct.nom, // Valor inicial (nombre actual)
-                onChanged: (value) => tempProduct.nom = value, // Guardamos lo que el usuario escribe
-                validator: (value) {
-                  if (value == null || value.length < 1)
-                    return "El nom es obligatori";
-                },
-                decoration: InputDecorations.authInputDecoration(
-                    hintText: 'Nom del producte', 
-                    labelText: 'Nom:'), // Campo para el nombre del producto
-              ),
+              // TextFormField(
+              //   initialValue: tempProduct.nom, // Valor inicial (nombre actual)
+              //   onChanged: (value) => tempProduct.nom = value, // Guardamos lo que el usuario escribe
+              //   validator: (value) {
+              //     if (value == null || value.length < 1)
+              //       return "El nom es obligatori";
+              //   },
+              //   decoration: InputDecorations.authInputDecoration(
+              //       hintText: 'Nom del producte', 
+              //       labelText: 'Nom:'), // Campo para el nombre del producto
+              // ),
 
-              SizedBox(height: 30),
+              // SizedBox(height: 30),
 
-              // Campo para editar el precio
-              TextFormField(
-                //initialValue: tempProduct.price.toString(),// Precio inicial como texto
-                inputFormatters: [
-                  // Restringe números con hasta 2 decimales
-                  FilteringTextInputFormatter.allow(
-                    RegExp(r'^(\d+)?\.?\d{0,2}')
-                  ),
-                ],
-                onChanged: (value) {
-                  if (double.tryParse(value) == null) {
-                    //tempProduct.price = 0; // Si no es número, se pone 0
-                  } else {
-                    //tempProduct.price = double.parse(value); // Convierte a número
-                  }
-                },
-                validator: (value) {
-                  if (value == null || value.length < 1)
-                    return "El nom es obligatori"; // Validación básica
-                },
-                keyboardType: TextInputType.number, // Muestra teclado numérico
-                decoration: InputDecorations.authInputDecoration(
-                    hintText: '99€', labelText: 'Preu:'), // Campo para el precio del producto
-              ),
+              // // Campo para editar el precio
+              // TextFormField(
+              //   //initialValue: tempProduct.price.toString(),// Precio inicial como texto
+              //   inputFormatters: [
+              //     // Restringe números con hasta 2 decimales
+              //     FilteringTextInputFormatter.allow(
+              //       RegExp(r'^(\d+)?\.?\d{0,2}')
+              //     ),
+              //   ],
+              //   onChanged: (value) {
+              //     if (double.tryParse(value) == null) {
+              //       //tempProduct.price = 0; // Si no es número, se pone 0
+              //     } else {
+              //       //tempProduct.price = double.parse(value); // Convierte a número
+              //     }
+              //   },
+              //   validator: (value) {
+              //     if (value == null || value.length < 1)
+              //       return "El nom es obligatori"; // Validación básica
+              //   },
+              //   keyboardType: TextInputType.number, // Muestra teclado numérico
+              //   decoration: InputDecorations.authInputDecoration(
+              //       hintText: '99€', labelText: 'Preu:'), // Campo para el precio del producto
+              // ),
 
               SizedBox(height: 30),
 
