@@ -18,10 +18,10 @@ class PlatCard extends StatelessWidget{
         child: Stack(
           alignment: Alignment.bottomLeft,
           children: [
-            //_BackgroudWidget(plat.foto),
+            //_BackgroudWidget(plat.nom),
             //_PlatDetails(plat.nom, plat.id!),
             _PlatDetails(plat.nom),
-            Positioned(top: 0, right: 0, child: _PriceTag(123)), //plat.price si tiene
+            //Positioned(top: 0, right: 0, child: _PriceTag(123)), //plat.price si tiene
             // if (!plat.disponible) ...[ // Condicional para añadir etiqueta
             //   Positioned(top: 0, left: 0, child: _Availability("Reservat")),
             //  ] else ...[ // Eliminar el 'else' si no queremos etiqueta 'Disponible'

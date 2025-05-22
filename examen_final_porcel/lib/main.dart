@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'login': (_) => LoginScreen(),
         'home': (_) => HomeScreen(),
+        'plat': (_) => ProductScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
