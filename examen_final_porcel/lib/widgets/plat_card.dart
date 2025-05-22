@@ -3,7 +3,7 @@ import 'package:examen_final_porcel/models/plat.dart';
 import 'package:flutter/material.dart';
 
 class PlatCard extends StatelessWidget{
-  final Plat_old plat;
+  final Plat plat;
   const PlatCard({Key? key, required this.plat}) : super(key: key);
   
   @override

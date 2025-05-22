@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:examen_final_porcel/models/plat.dart';
-import 'package:examen_final_porcel/models/platDos.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -29,12 +28,17 @@ class PlatsServices extends ChangeNotifier{
 
     // Recorremos cada producto recibido y lo agregamos a la lista
     plats.clear();
-    platMaps.forEach((key, value) {
-      final tempProduct = Plat_old.fromMap(value); // Convertimos el JSON a un objeto Product
-      tempProduct.id = key; // Asignamos el ID del producto desde la base de datos
-      plats.add(tempProduct); // Lo añadimos a la lista de productos
-    });
+    // platMaps.forEach((key, value) {
+    //   final tempProduct = Plat_old.fromMap(value); // Convertimos el JSON a un objeto Product
+    //   tempProduct.id = key; // Asignamos el ID del producto desde la base de datos
+    //   plats.add(tempProduct); // Lo añadimos a la lista de productos
+    // });
 
+    platMaps.forEach((value) {
+       final tempProduct = Plat.fromMap(value); // Convertimos el JSON a un objeto Product
+       //tempProduct.id = id; // Asignamos el ID del producto desde la base de datos
+       plats.add(tempProduct); // Lo añadimos a la lista de productos
+     });
     isLoading = false;
     notifyListeners(); // Notificamos a los widgets para actualizar la UI
   }
