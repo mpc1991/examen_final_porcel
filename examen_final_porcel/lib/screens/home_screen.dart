@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           onTap: () {
             //platsServices.newPicture = null;
             //platsServices.selectedProduct = platsServices.plats[index].getProduct();
-            //Navigator.of(context).pushNamed('product');
+            Navigator.of(context).pushNamed('plat');
           },
         ),
       )
